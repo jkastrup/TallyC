@@ -31,8 +31,17 @@
 		$this->load->helper('form');
 		$this->load->helper('html');
 		// Grab vehicles from the database
-		$query = $this->db->get('vehicles');
+		//$query = $this->db->query('SELECT * FROM vehicles;');
+		//$user = 'root';
+		//$pass = 'root';
+		//$db_info = "mysql:host=localhost;dbname=tallyc;port=8889";
+		//$dbh = new PDO($db_info, $user, $pass);
+		//$stmt = $dbh->prepare("SELECT * FROM vehicles");
+		//$stmt->execute();
+		//$my_query = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		
+        $query = $this->db->get('vehicles');
+ 
 		// Create the Select field for the vehicles
 		$names = array();
 		$mpgval = array();
@@ -91,6 +100,7 @@
 			'value'	=> 'Estimate Cost',
 		);
 		echo form_submit($atr, 'Estimate Cost');
+	
 	?> 
 </div><!-- end #estimator -->
 
