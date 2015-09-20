@@ -44,9 +44,9 @@
 		public function add_user(){
 			// Store user input - hash password
 			$data = array(
-				'f_name' => $this->input->post('f-name'),
-				'l_name' => $this->input->post('l-name'),
-				'email' => $this->input->post('email'),
+				'first_name' => $this->input->post('f-name'),
+				'last_name' => $this->input->post('l-name'),
+				'email' => $this->input->post('email_address'),
 				'password' => md5($this->input->post('password'))
 			);
 			
