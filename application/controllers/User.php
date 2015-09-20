@@ -56,14 +56,14 @@
 			$this->load->model('User_model');
 			
 			// Set validation rules
-			//$this->form_validation->set_rules('f-name', 'Your First Name', 'trim|required');
-			//$this->form_validation->set_rules('l-name', 'Your Last Name', 'trim|required');
-			//$this->form_validation->set_rules('email_address', 'Your Email', 'trim|required|valid_email');
-			//$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length(4)');
-			//$this->form_validation->set_rules('con_password', 'Password confirmation', 'trim|required|matches[password]');
+			$this->form_validation->set_rules('f-name', 'Your First Name', 'trim|required');
+			$this->form_validation->set_rules('l-name', 'Your Last Name', 'trim|required');
+			$this->form_validation->set_rules('email_address', 'Your Email', 'trim|required|valid_email');
+			$this->form_validation->set_rules('password', 'Password', 'trim|required');
+			$this->form_validation->set_rules('con_password', 'Password confirmation', 'trim|required|matches[password]');
 			
 			// Test form validation
-			if ($this->form_validation->run() != FALSE) {
+			if ($this->form_validation->run() == FALSE) {
 				// Validation Failed, redirect to login
 				$this->index();	
 			} else {
@@ -95,7 +95,7 @@
 			
 			$this->session->unset_userdata($newdata);
 			$this->session->sess_destroy();
-			$this->index();
+			redirect(base_url());
 		}
 		
 		
