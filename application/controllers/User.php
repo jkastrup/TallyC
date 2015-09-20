@@ -13,6 +13,7 @@
 				// User is NOT logged in
 				// Load registration page
 				$data['title'] = 'Login';
+				$data['errors'] = validation_errors();
 				$this->load->view('templates/header', $data);
 				$this->load->view('pages/login_view', $data);
 				$this->load->view('pages/register_view', $data);	
@@ -56,16 +57,23 @@
 			$this->load->model('User_model');
 			
 			// Set validation rules
-			$this->form_validation->set_rules('f-name', 'Your First Name', 'trim|required');
-			$this->form_validation->set_rules('l-name', 'Your Last Name', 'trim|required');
-			$this->form_validation->set_rules('email_address', 'Your Email', 'trim|required|valid_email');
+			$this->form_validation->set_rules('f-name', 'First Name', 'trim|required');
+			$this->form_validation->set_rules('l-name', 'Last Name', 'trim|required');
+			$this->form_validation->set_rules('email_address', 'Email', 'trim|required|valid_email');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required');
-			$this->form_validation->set_rules('con_password', 'Password confirmation', 'trim|required|matches[password]');
+			$this->form_validation->set_rules('con_password', 'Confirm Password', 'trim|required|matches[password]');
 			
 			// Test form validation
 			if ($this->form_validation->run() == FALSE) {
 				// Validation Failed, redirect to login
-				$this->index();	
+				// save errors
+				$data['errors'] = validation_errors();
+				$data['title'] = 'Login';
+				
+				$this->load->view('templates/header', $data);
+				$this->load->view('pages/login_view', $data);
+				$this->load->view('pages/register_view', $data);	
+				$this->load->view('templates/footer', $data);
 			} else {
 				// Validation Success, add user to database
 				$this->User_model->add_user();

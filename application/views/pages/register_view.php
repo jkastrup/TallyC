@@ -15,6 +15,7 @@
 			'id'			=>	'f-name',
 			'maxlength' 	=>	'20',
 			'size'			=>	'20',
+			'value'			=>	set_value('f-name'),
 			'required'		=>	'required'
 		);
 		echo form_label('First Name: ', 'f-name');
@@ -27,6 +28,7 @@
 			'id'			=>	'l-name',
 			'maxlength' 	=>	'20',
 			'size'			=>	'20',
+			'value'			=>	set_value('l-name'),
 			'required'		=>	'required'
 		);
 		echo form_label('Last Name: ', 'l-name');
@@ -39,6 +41,7 @@
 			'id'			=>	'email_address',
 			'maxlength' 	=>	'50',
 			'size'			=>	'50',
+			'value'			=>	set_value('email_address'),
 			'required'		=>	'required'
 		);
 		echo form_label('Email: ', 'email_address');

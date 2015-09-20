@@ -1,4 +1,13 @@
 <!-- Provides login form -->
+<div class='error_message'>
+    <?php 
+		if( validation_errors() != ""){
+			echo heading('ERRORS', 4);
+			echo validation_errors(); 
+		}
+	?>
+</div><!-- end .error_message -->
+
 <div id="content">
 	<?php 
 		// Create login form
