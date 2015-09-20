@@ -28,18 +28,18 @@
 							if($this->uri->segment(3)=='home' || $this->uri->segment(3) == NULL){
 								echo 'active';
 							}?>">
-                            <a href="<? echo site_url('index.php/pages/view/home'); ?>">Home</a>
+                            <a href="<? echo site_url('pages/view/home'); ?>">Home</a>
                         </li>
 						<li class="<?php 
 							if($this->uri->segment(3)=='estimation'){
 								echo 'active';
 							}?>">
-                            <a href="<? echo site_url('index.php/pages/view/estimation'); ?>">Estimator</a></li>
+                            <a href="<? echo site_url('pages/view/estimation'); ?>">Estimator</a></li>
 						<li class="<?php 
 							if($this->uri->segment(3)=='vehicles'){
 								echo 'active';
 							}?>">
-                            <a href="<? echo site_url('index.php/pages/view/vehicles'); ?>">Vehicles</a></li>
+                            <a href="<? echo site_url('pages/view/vehicles'); ?>">Vehicles</a></li>
                     </ul>
                    
                 </nav>
