@@ -1,3 +1,9 @@
+<?php
+	if($this->session->userdata('email') == ""){
+		redirect(base_url());	
+	}
+?>
+
 <html>
         <head>
         	<link href="/assets/css/header.css" type="text/css" rel="stylesheet" />
@@ -34,12 +40,21 @@
 							if($this->uri->segment(3)=='estimation'){
 								echo 'active';
 							}?>">
-                            <a href="<? echo site_url('pages/view/estimation'); ?>">Estimator</a></li>
+                            <a href="<? echo site_url('pages/view/estimation'); ?>">Estimator</a>
+                        </li>
 						<li class="<?php 
 							if($this->uri->segment(3)=='vehicles'){
 								echo 'active';
 							}?>">
-                            <a href="<? echo site_url('pages/view/vehicles'); ?>">Vehicles</a></li>
+                            <a href="<? echo site_url('pages/view/vehicles'); ?>">Vehicles</a>
+                        </li>
+                        <li class="<?php 
+							if($this->uri->segment(3)=='my_vehicles'){
+								echo 'active';
+							}?>">
+                            <a href="<? echo site_url('pages/view/my_vehicles'); ?>">My Vehicles</a>
+                        </li>
+                        
                     </ul>
                    
                 </nav>

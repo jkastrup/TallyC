@@ -13,7 +13,7 @@
 				// User is NOT logged in
 				// Load registration page
 				$data['title'] = 'Login';
-				$this->load->view('templates/header', $data);
+				$this->load->view('templates/login_header', $data);
 				$this->load->view('pages/login_view', $data);
 				$this->load->view('pages/register_view', $data);	
 				$this->load->view('templates/footer', $data);
@@ -66,7 +66,7 @@
 			if ($this->form_validation->run() == FALSE) {
 				// Validation Failed, redirect to login
 				$data['title'] = 'Login';
-				$this->load->view('templates/header', $data);
+				$this->load->view('templates/login_header', $data);
 				$this->load->view('pages/login_view', $data);
 				$this->load->view('pages/register_view', $data);	
 				$this->load->view('templates/footer', $data);
@@ -82,7 +82,7 @@
 		// After successful registration, thank user then allow login
 		public function thanks() {
 			$data['title'] = 'Registration Successful';
-			$this->load->view('templates/header', $data);
+			$this->load->view('templates/login_header', $data);
 			$this->load->view('pages/thanks_view', $data);
 			$this->load->view('pages/login_view', $data);
 			$this->load->view('templates/footer', $data); 	
