@@ -13,7 +13,6 @@
 				// User is NOT logged in
 				// Load registration page
 				$data['title'] = 'Login';
-				$data['errors'] = validation_errors();
 				$this->load->view('templates/header', $data);
 				$this->load->view('pages/login_view', $data);
 				$this->load->view('pages/register_view', $data);	
@@ -59,17 +58,14 @@
 			// Set validation rules
 			$this->form_validation->set_rules('f-name', 'First Name', 'trim|required');
 			$this->form_validation->set_rules('l-name', 'Last Name', 'trim|required');
-			$this->form_validation->set_rules('email_address', 'Email', 'trim|required|valid_email');
+			$this->form_validation->set_rules('email_address', 'Email', 'trim|required|valid_email|is_unique[users.email]');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required');
 			$this->form_validation->set_rules('con_password', 'Confirm Password', 'trim|required|matches[password]');
 			
 			// Test form validation
 			if ($this->form_validation->run() == FALSE) {
 				// Validation Failed, redirect to login
-				// save errors
-				$data['errors'] = validation_errors();
 				$data['title'] = 'Login';
-				
 				$this->load->view('templates/header', $data);
 				$this->load->view('pages/login_view', $data);
 				$this->load->view('pages/register_view', $data);	

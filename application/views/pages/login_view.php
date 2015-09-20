@@ -20,6 +20,7 @@
 			'id'			=>	'email',
 			'maxlength' 	=>	'50',
 			'size'			=>	'50',
+			'autofocus'		=> 	'autofocus',
 			'required'		=>	'required'
 		);
 		echo form_label('Email:', 'email');
