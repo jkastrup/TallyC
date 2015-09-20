@@ -7,8 +7,12 @@
 		}
 		
 		public function index() {
-			// Add selected vehicle to userVehicles table under userID	
-			redirect(base_url());
+		
+		}
+		
+		public function add() {
+			$this->load->view('templates/header');
+			echo $this->input->post('vehicleID');
 		}
 	}
 ?>

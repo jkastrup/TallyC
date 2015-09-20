@@ -138,4 +138,15 @@
 <!-- script disabling edit buttons until functionality has been written -->
 <script type='text/javascript'>
     $('.edit').attr('disabled', 'disabled');
+	$('.add').click(function(e) {
+        e.preventDefault();
+		
+		$.ajax({
+			type: 'post',
+			url: '/add_vehicle/add',
+			data: 'vehicleID='+ $(this).parent().attr('title'),
+			error: function(){},
+			success: function(){}	
+		});
+    });
 </script>
