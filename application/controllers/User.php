@@ -36,6 +36,7 @@
 			$password= md5($this->input->post('pass'));
 			
 			// Store user_model/login result
+			$this->load->model('User_model');
 			$result = $this->User_model->login($email, $password);
 			
 			// test result for successful login
@@ -91,7 +92,7 @@
 				'logged_in' => FALSE
 			);	
 			
-			$this->session->unset_userdat($newdata);
+			$this->session->unset_userdata($newdata);
 			$this->session->sess_destroy();
 			$this->index();
 		}

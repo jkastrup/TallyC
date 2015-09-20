@@ -44,4 +44,5 @@
                    
                 </nav>
             </header>
+            <?php echo anchor('user/logout', 'Logout'); ?>
                 
