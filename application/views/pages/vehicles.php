@@ -42,7 +42,7 @@
             
             // Generate Form
             $atr = array('class' => 'vehicle-form');
-            echo form_open(site_url().'index.php/pages/view/vehicles', $atr);
+            echo form_open(site_url().'/pages/view/vehicles', $atr);
             // Input
             $atr = array(
                 'name'			=>	'v-year',
@@ -126,8 +126,10 @@
                     'class'	=> 'avatar',
                     'title'	=> $year . " " . $make . " " . $model
                 );
+				$url = 'window.location.href="'.site_url().'/addvehicle/add"';
+				
                 $a = "https://www.google.com/search?newwindow=1&site=&source=hp&q=" . $year . " " . $make . " " . $model;
-                $output = "<div class='vehicle-info' title='". $vehicleID . "'><p><a title='Open in Google' target='_blank' href='".$a ."'>" . $year . " " . $make . " " . $model . "</a></p><p>Avg MPG: " . $mpg . "</p><button class='button edit'>Edit</button><button class='button add'>Add Car</button><div class='avatar-container'>" . img($img) . "</div></div>";
+                $output = "<div class='vehicle-info' title='". $vehicleID . "'><p><a title='Open in Google' target='_blank' href='".$a ."'>" . $year . " " . $make . " " . $model . "</a></p><p>Avg MPG: " . $mpg . "</p><button class='button edit'>Edit</button><button class='button add' onclick='".$url."'>Add Car</button><div class='avatar-container'>" . img($img) . "</div></div>";
                 
                 echo $output;
             }
