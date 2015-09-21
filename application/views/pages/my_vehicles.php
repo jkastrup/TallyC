@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="/assets/css/my_vehicles.css" />
 
 <div class="content">
+	<h2> My Vehicles </h2>
 	<div class="my_cars">
 		<?php
             // MY VEHICLES PAGE

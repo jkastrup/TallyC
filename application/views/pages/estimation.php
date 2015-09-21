@@ -64,7 +64,7 @@
 		);
 		echo form_label('Vehicle: ', 'est-mpg');
 		echo form_dropdown('est-mpg', $options);
-		echo "<a class='add-v' target='_blank' href=". site_url('index.php/pages/view/vehicles') . ">Add a Vehicle</a>";
+		echo "<a class='add-v' href=". site_url('/pages/view/vehicles') . ">Add a Vehicle</a>";
 		
 		// Distance input
 		$atr = array(

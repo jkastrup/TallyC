@@ -1,0 +1,8 @@
+TO DO
+-----
+Create vehicle display controller and model
+Model should return query of all vehicles
+Controller should check if those vehicles exist
+View should display and format the data sent from controller
+	- For each vehicle, check if it exists (vehicle_model/isAdded($vehicleID))
+	- if it exists, add 'exists' class to that .vehicle-info

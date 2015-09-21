@@ -3,6 +3,9 @@
 html, body {
 	font-family: 'Roboto', sans-serif;
 }
+.content h2{
+	text-align: center;	
+}
 #vehicles {
 	width: 73%;
 	display: inline-block;
