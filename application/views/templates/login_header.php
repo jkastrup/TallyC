@@ -24,6 +24,4 @@
               	</div><!-- end #logo -->
                
             </header>
-            
-            <?php echo anchor('user/logout', 'Logout'); ?>
-                
+                          

@@ -1,0 +1,55 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#container form {
+	display: inline-block;
+	padding: 10px;
+	border: 2px solid #0CF;
+	margin-left: 5%;
+	width: 20%;
+	float: left;
+	border-radius: 10px;
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(26,19,64,0.35);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(26,19,64,0.35);
+	box-shadow: 10px 10px 5px 0px rgba(26,19,64,0.35);
+}
+
+#container form h2 {
+	margin-top: 0;
+	color: #1a1340;
+}
+#container form input {
+	display: block;	
+	margin-bottom: 5px;
+}	
+.button {
+   border: 1px solid #1A1340;
+   background: #5129f0;
+   background: -webkit-gradient(linear, left top, left bottom, from(#203f6e), to(#5129f0));
+   background: -webkit-linear-gradient(top, #203f6e, #5129f0);
+   background: -moz-linear-gradient(top, #203f6e, #5129f0);
+   background: -ms-linear-gradient(top, #203f6e, #5129f0);
+   background: -o-linear-gradient(top, #203f6e, #5129f0);
+   padding: 5px 10px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 14px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   cursor: pointer;
+}
+.button:hover {
+   border-top-color: #1a1540;
+   background: #653FFF;
+}
+.button:active {
+   border-top-color: #7FB2F0;
+   background: #7FB2F0;
+}

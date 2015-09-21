@@ -1,58 +1,8 @@
 @charset "UTF-8";
-/* CSS Document 
-	home.css
-*/
-
+/* CSS Document */
 html, body {
-	margin: 0;
-	padding: 0;
 	font-family: 'Roboto', sans-serif;
-
 }
-header {
-	margin-bottom: 0px;	
-}
-#wrapper{
-	margin-top: 50px;
-}
-#add-msg {
-	text-align: center;
-	display: block;
-	width: 100%;
-	margin: 0;
-	background: #0C9;
-	color: #1A1340;
-		
-}
-
-/* VEHICLE FORM */
-#vehicle_form {
-	display: inline-block;
-	padding: 10px;
-	border: 2px solid #0CF;
-	margin-left: 150px;
-	float: left;
-	border-radius: 10px;
-	width: 12%;
-	height: 276px;
-	-webkit-box-shadow: 10px 10px 5px 0px rgba(26,19,64,0.35);
-	-moz-box-shadow: 10px 10px 5px 0px rgba(26,19,64,0.35);
-	box-shadow: 10px 10px 5px 0px rgba(26,19,64,0.35);
-}
-#vehicle_form h2 {
-	margin-top: 0;	
-}
-#vehicle_form input {
-	display: block;	
-	margin-bottom: 5px;
-}
-#vehicle_form input[type="submit"] {
-	margin-top: 20px;
-	margin-bottom: 0px;
-	cursor: pointer;	
-}
-
-/* VEHICLES DISPLAY */
 #vehicles {
 	width: 73%;
 	display: inline-block;
@@ -74,10 +24,6 @@ header {
 	-webkit-box-shadow: 10px 10px 5px 0px rgba(26,19,64,0.35);
 	-moz-box-shadow: 10px 10px 5px 0px rgba(26,19,64,0.35);
 	box-shadow: 10px 10px 5px 0px rgba(26,19,64,0.35);
-}
-.edit {
-	text-align: center;
-	width: 50px;
 }
 .avatar-container {
 	position: absolute;
@@ -106,24 +52,3 @@ header {
 	max-width: 60px;
 }
 
-#edit-panel {
-	margin-left: 365px;
-	position: absolute;
-	background: #000;
-	width: 70%;
-	border-radius: 10px;
-}
-.add_msg {
-	margin: 0;
-	padding: 0;
-	text-align: center;	
-}
-.add_success {
-	background: #0C9;
-	color: #1A1340;
-}
-.add_failed {
-	background: #C36;
-	color: #fff;
-	
-}

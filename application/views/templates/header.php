@@ -13,7 +13,9 @@
         
         <body>
         	<header>
-            
+            	<div id="logout">
+                	 <?php echo anchor('user/logout', 'Logout'); ?>
+                </div>
             	<div id="logo">
 					<?php
                         $this->load->helper("html");
@@ -59,6 +61,4 @@
                    
                 </nav>
             </header>
-            
-            <?php echo anchor('user/logout', 'Logout'); ?>
                 

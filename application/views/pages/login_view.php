@@ -1,4 +1,6 @@
 <!-- Provides login form -->
+<link rel="stylesheet" type="text/css" href="/assets/css/login.css" />
+
 <div class='error_message'>
     <?php 
 		if( validation_errors() != ""){
@@ -37,7 +39,14 @@
 		echo form_label('Password: ', 'pass');
 		echo form_input($atr);
 		
-		echo form_submit('login_submit', 'Login');
+		$atr = array(
+			'type'	=>	'submit',
+			'class'	=>	'button',
+			'value'	=>	'Login',
+			'name'	=>	'login_submit',
+			'id'	=>	'login_submit'
+		);
+		echo form_submit($atr);
 		echo form_close();
 		
 	?>

@@ -32,6 +32,16 @@
         Create the 'Add Vehicle' form
         This form will add a vehicle to the database
     -->
+    <div class="add_msg">
+    	<?php
+			if($this->session->userdata('add_msg')){
+				echo "<p class='".$this->uri->segment(4)."'>".$this->session->userdata('add_msg')."</p>";
+				// ensures permeation of message
+				$this->session->unset_userdata('add_msg');	
+			}
+		?>
+    </div>
+    
     <div id="vehicle_form">
         <h2>Add a Vehicle </h2>
         <!-- Form for trip estimation -->
@@ -129,7 +139,7 @@
 				$url = 'window.location.href="'.site_url().'/addvehicle/add"';
 				
                 $a = "https://www.google.com/search?newwindow=1&site=&source=hp&q=" . $year . " " . $make . " " . $model;
-                $output = "<div class='vehicle-info' title='". $vehicleID . "'><p><a title='Open in Google' target='_blank' href='".$a ."'>" . $year . " " . $make . " " . $model . "</a></p><p>Avg MPG: " . $mpg . "</p><button class='button edit'>Edit</button><button class='button add' onclick='".$url."'>Add Car</button><div class='avatar-container'>" . img($img) . "</div></div>";
+                $output = "<div class='vehicle-info' title='". $vehicleID . "'><p><a title='Open in Google' target='_blank' href='".$a ."'>" . $year . " " . $make . " " . $model . "</a></p><p>Avg MPG: " . $mpg . "</p><button class='button edit'>Edit</button><button class='button add'>Add Car</button><div class='avatar-container'>" . img($img) . "</div></div>";
                 
                 echo $output;
             }
@@ -140,15 +150,11 @@
 <!-- script disabling edit buttons until functionality has been written -->
 <script type='text/javascript'>
     $('.edit').attr('disabled', 'disabled');
+	
+	// Script calls addvehicle class on click
 	$('.add').click(function(e) {
         e.preventDefault();
-		
-		$.ajax({
-			type: 'post',
-			url: '/add_vehicle/add',
-			data: 'vehicleID='+ $(this).parent().attr('title'),
-			error: function(){},
-			success: function(){}	
-		});
+		var $vehicleID = $(this).parent('.vehicle-info').attr('title');
+		window.location.replace("http://localhost:8888/index.php/addvehicle/add/" + $vehicleID);
     });
 </script>

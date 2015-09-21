@@ -92,3 +92,16 @@ nav ul li a {
    border-top-color: #7FB2F0;
    background: #7FB2F0;
 }
+#logout {
+	position: absolute;
+	top: 15px;
+	right: 20px;
+	padding: 5px 15px;
+	background: #7FB2F0;
+	border: 1px solid #35478C;
+	border-radius: 5px;
+}
+#logout a {
+	color: #fff;
+	text-decoration: none;
+}

@@ -1,4 +1,5 @@
 <!-- register_view.php -->
+<link rel="stylesheet" type="text/css" href="/assets/css/register.css" />
 <div id="container">
 	<?php
 		// Load HTML helper
@@ -72,7 +73,14 @@
 		echo form_input($atr);
 		
 		// Submit
-		echo form_submit('reg_submit', 'Register');
+		$atr = array(
+			'type'	=>	'submit',
+			'class'	=>	'button',
+			'value'	=>	'Register',
+			'name'	=>	'reg_submit',
+			'id'	=>	'reg_submit'
+		);
+		echo form_submit($atr);
 		echo form_close();
 	?>
 </div>
