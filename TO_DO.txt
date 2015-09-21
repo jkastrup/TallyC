@@ -1,8 +1,13 @@
 TO DO
 -----
 Create vehicle display controller and model
-Model should return query of all vehicles
-Controller should check if those vehicles exist
-View should display and format the data sent from controller
-	- For each vehicle, check if it exists (vehicle_model/isAdded($vehicleID))
-	- if it exists, add 'exists' class to that .vehicle-info
+	-Model should return query of all vehicles
+	-Controller should check if those vehicles exist
+	-View should display and format the data sent from controller
+		* For each vehicle, check if it exists (vehicle_model/isAdded($vehicleID))
+		* if it exists, add 'exists' class to that .vehicle-info
+Create Controller for estimation.php
+	- Can use vehicle model to get all cars for dropdown in form (possibly fix glitch with dropdown not showing all vehicles)
+		* Controller should handle all calculations, as well as serving the entire list of cars to the view
+	- NEW View (estimation_view.php) should handle all the display
+
