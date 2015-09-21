@@ -54,7 +54,7 @@
 		$options = array_combine($mpgval, $names);
 		
 		$atr = array('class' => 'estimation-form');
-		echo form_open(site_url().'index.php/pages/view/estimation', $atr);
+		echo form_open(site_url().'/pages/view/estimation', $atr);
 		echo "<h2>Trip Estimation</h2>";
 		
 		// Select vehicle

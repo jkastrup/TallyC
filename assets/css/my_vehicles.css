@@ -6,6 +6,9 @@ html, body {
 .content h2{
 	text-align: center;	
 }
+.my_cars {
+	padding-left: 5%;	
+}
 #vehicles {
 	width: 73%;
 	display: inline-block;
