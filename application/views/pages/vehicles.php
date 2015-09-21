@@ -139,7 +139,7 @@
 				$url = 'window.location.href="'.site_url().'/addvehicle/add"';
 				
                 $a = "https://www.google.com/search?newwindow=1&site=&source=hp&q=" . $year . " " . $make . " " . $model;
-                $output = "<div class='vehicle-info' title='". $vehicleID . "'><p><a title='Open in Google' target='_blank' href='".$a ."'>" . $year . " " . $make . " " . $model . "</a></p><p>Avg MPG: " . $mpg . "</p><button class='button edit'>Edit</button><button class='button add'>Add Car</button><div class='avatar-container'>" . img($img) . "</div></div>";
+                $output = "<div class='vehicle-info' title='". $vehicleID . "'><p><a title='Open in Google' target='_blank' href='".$a ."'>" . $year . " " . $make . " " . $model . "</a></p><p>Avg MPG: " . $mpg . "</p><button class='button add'>Add Car</button><div class='avatar-container'>" . img($img) . "</div></div>";
                 
                 echo $output;
             }
@@ -147,11 +147,8 @@
     </div><!-- end #vehicles -->
     
 </div><!-- end #wrapper -->
-<!-- script disabling edit buttons until functionality has been written -->
-<script type='text/javascript'>
-    $('.edit').attr('disabled', 'disabled');
-	
-	// Script calls addvehicle class on click
+
+<script>	
 	$('.add').click(function(e) {
         e.preventDefault();
 		var $vehicleID = $(this).parent('.vehicle-info').attr('title');
