@@ -33,7 +33,7 @@
                 <nav>
                		<ul>
 						<li class="<?php 
-							if($this->uri->segment(3)=='home' || $this->uri->segment(3) == NULL){
+							if($this->uri->segment(3)=='home'){
 								echo 'active';
 							}?>">
                             <a href="<? echo site_url('pages/view/home'); ?>">Home</a>
@@ -55,6 +55,12 @@
 								echo 'active';
 							}?>">
                             <a href="<? echo site_url('pages/view/my_vehicles'); ?>">My Vehicles</a>
+                        </li>
+                        <li class="<?php 
+                            if($this->uri->segment(3)=='trips_view' || $this->uri->segment(1) == 'trips'){
+                                echo 'active';
+                            }?>">
+                            <a href="<? echo site_url('trips'); ?>">My Trips</a>
                         </li>
                         
                     </ul>

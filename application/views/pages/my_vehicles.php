@@ -37,7 +37,7 @@
                 }
             } else {
                 // Failed query
-                
+                echo "<h2>You have no vehicles yet!</h2>";
             }
         ?>
     </div>

@@ -50,4 +50,28 @@
 			return ($query->num_rows() > 0) ? TRUE : FALSE;
 			
 		}
+		
+		// Returns all vehicles in the database
+		public function getVehicles() {
+			$sql = "SELECT * from vehicles;";
+			$query = $this->db->query($sql);
+			
+			// Check for success of select
+			if($query->num_rows() > 0) {
+				return $query;
+			} else {
+				return FALSE;	
+			}
+		}
+		
+		public function getUserVehicles($userID){
+			$sql = 'SELECT * from userVehicles WHERE userID = '. $userID;
+			$query = $this->db->query($sql);
+			
+			if($query->num_rows() > 0){
+				return $query;
+			} else {
+				return false;	
+			}
+		}
 	}

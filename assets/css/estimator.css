@@ -58,3 +58,22 @@ html, body {
 #est-msg p {
 	margin-top: 5px;	
 }
+.hidden {
+	display: none;	
+}
+.save_success {
+	text-align: center;
+	margin-top: -25px;
+	padding: 5px;
+	background: #0C9;
+	color: #1A1340;
+}
+.save_failed {
+	text-align: center;
+	margin-top: -25px;
+	margin: 0;
+	padding: 5px;
+	background: #C36;
+	color: #fff;
+	
+}

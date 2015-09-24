@@ -3,13 +3,19 @@
     based on the vehicle's mpg, distance, and fuel cost
 -->
 <link href="/assets/css/estimator.css" type="text/css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 <?php
 	
 	// Check for POSTed variables and store them
 	if ($_SERVER['REQUEST_METHOD'] == "POST"){
 			// Miles per Gallon
-			$est_mpg = $_POST['est-mpg'];
+			$est_mpg = "";
+			$vehicleID = $_POST['vehicleID'];
+			$result = $this->db->query("SELECT mpg FROM vehicles WHERE vehicleID=".$vehicleID);
+			foreach($result->result() as $row){
+				$est_mpg = $row->mpg;	
+			}
 			// Distance
 			$est_dist = $_POST['est-dist'];
 			// Fuel Cost
@@ -20,9 +26,19 @@
 			// Basic Estimation for total fuel cost of the trip
 			$trip_cost = ($est_dist / $est_mpg) * $est_fc;
 			// Format Cost to USD
-			$trip_cost = "$".substr(money_format('%i', $trip_cost), 3);
+			$trip_cost_form = "$".substr(money_format('%i', $trip_cost), 3);
 	}
 ?>
+
+<div id="save-msg">
+	<?php
+		if($this->session->userdata('save_msg')){
+				echo "<p class='".$this->uri->segment(4)."'>".$this->session->userdata('save_msg')."</p>";
+				// ensures permeation of message
+				$this->session->unset_userdata('save_msg');	
+			}
+	?>
+</div><!-- end #save-msg -->
 
 
 <div id="estimator">
@@ -30,28 +46,20 @@
 		// Load Helpers
 		$this->load->helper('form');
 		$this->load->helper('html');
-		// Grab vehicles from the database
-		//$query = $this->db->query('SELECT * FROM vehicles;');
-		//$user = 'root';
-		//$pass = 'root';
-		//$db_info = "mysql:host=localhost;dbname=tallyc;port=8889";
-		//$dbh = new PDO($db_info, $user, $pass);
-		//$stmt = $dbh->prepare("SELECT * FROM vehicles");
-		//$stmt->execute();
-		//$my_query = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		
 		
         $query = $this->db->get('vehicles');
  
 		// Create the Select field for the vehicles
 		$names = array();
-		$mpgval = array();
+		$vehicles = array();
 		foreach ($query->result() as $row) {
 			$str = $row->year.' '.$row->make.' '.$row->model.' ('.$row->mpg.' mpg)';
 			array_push($names, $str);
-			array_push($mpgval, $row->mpg);
+			array_push($vehicles, $row->vehicleID);
 		}
 		// Will be used in the form below
-		$options = array_combine($mpgval, $names);
+		$options = array_combine($vehicles, $names);
 		
 		$atr = array('class' => 'estimation-form');
 		echo form_open(site_url().'/pages/view/estimation', $atr);
@@ -62,8 +70,8 @@
 			'id'		=>	'vehicle',
 			'required'	=>	'required'
 		);
-		echo form_label('Vehicle: ', 'est-mpg');
-		echo form_dropdown('est-mpg', $options);
+		echo form_label('Vehicle: ', 'vehicleID');
+		echo form_dropdown('vehicleID', $options);
 		echo "<a class='add-v' href=". site_url('/pages/view/vehicles') . ">Add a Vehicle</a>";
 		
 		// Distance input
@@ -100,6 +108,7 @@
 			'value'	=> 'Estimate Cost',
 		);
 		echo form_submit($atr, 'Estimate Cost');
+		echo form_close();
 	
 	?> 
 </div><!-- end #estimator -->
@@ -109,10 +118,25 @@
 		// If POSTed variables exist then trip cost has been calculated
 		if($_SERVER['REQUEST_METHOD'] == "POST") {
 			// Display Heading
-			$str = "Total Trip Cost: " . $trip_cost;
+			$str = "Total Trip Cost: " . $trip_cost_form;
 			echo heading($str, 2, 'class="est-cost"');
 			// Display Details
-			echo"<p class='est-details'>At ".$est_mpg."mpg your trip of ".$est_dist." miles will cost ".$trip_cost." at ".$est_fc_form." a gallon.";
+			echo"<p class='est-details'>At ".$est_mpg."mpg your trip of ".$est_dist." miles will cost ".$trip_cost_form." at ".$est_fc_form." a gallon.";
+			echo "<br/>";
+			
+			// Generate hidden form
+			// hidden form will POST save data to controller
+			$atr = array('class' => 'save-trip');
+			echo form_open(site_url().'/estimate/savetrip', $atr);
+			echo "<input id='vehicleID' class='hidden' name='vehicleID' type='text' value='".$vehicleID."'>
+				<input id='trip-cost' class='hidden' name='trip-cost' type='text' value='".$trip_cost."'>
+				<input id='distance' class='hidden' name='distance' type='text' value='".$est_dist."'>
+				<input id='cost-pg' class='hidden' name='cost-pg' type='text' value='".$est_fc."'>
+				<input id='trip-name' class='hidden' name='trip-name' type='text' value='trip1'>
+				<input type='submit' name='save-trip' class='save button' value='Save Trip'>
+				";
+			
+			
 			
 		} else {
 			echo heading("Estimate the cost of your trip!", 2);
@@ -122,3 +146,18 @@
 	?>
     <p class="est-details"></p>
 </div><!-- end #est-message -->
+
+
+<script>	
+	$('.save').click(function(e) {
+        e.preventDefault();
+		// Set values
+		var $trip_cost = $('#trip-cost').attr('value');
+		var $vehicleID = $('#vehicleID').attr('value');
+		var $distance = $('#distance').attr('value');
+		var $fc = $('#cost-pg').attr('value');
+		var $name = $('#trip-name').attr('value');
+		// Send to controller for trip save
+		window.location.replace("http://localhost:8888/index.php/estimate/saveTrip/" + $vehicleID + "/" + $distance + "/" + $fc + "/" + $name + "/" + $trip_cost );
+    });
+</script>
