@@ -12,7 +12,14 @@
 			// Miles per Gallon
 			$est_mpg = "";
 			$vehicleID = $this->input->post('vehicleID');
-			$trip_name = $this->input->post('trip-name');
+			// Test if user put in trip name
+			if($this->input->post('trip-name') == NULL){
+				// load default name
+				$trip_name = 'Default Trip';
+			} else {
+				// load user input trip name
+				$trip_name = $this->input->post('trip-name');
+			}
 			$result = $this->db->query("SELECT mpg FROM vehicles WHERE vehicleID=".$vehicleID);
 			foreach($result->result() as $row){
 				$est_mpg = $row->mpg;	
