@@ -15,9 +15,31 @@
 			//echo "Price Per Gallon: " . $trip['cost_pg']. "<br/>";
 			//echo "Vehicle: " . $trip['year'] . " " . $trip['make'] . " " . $trip['model'] . " " . $trip['mpg'] . "mpg<br/>";
 			//echo "<br/>";
-			
-			
-			
+			echo "<div class='trip'>";
+			echo heading($trip['trip_name'], 2);
+			echo "<p><strong>Distance:</strong> " . $trip['trip_distance'] . " miles</p>";
+			echo "<p><strong>Trip Cost:</strong> $" . $trip['trip_cost'] . "</p>";
+			echo "<p><strong>Price Per Gallon:</strong> $" . $trip['cost_pg'] . "</p>";
+			echo "<p><strong>Vehicle:</strong> " . $trip['year'] . " " . $trip['make'] . " " . $trip['model'] . " " . $trip['mpg'] . "mpg";
+			// Form for delete submission
+			$atr = array('class' => 'del-trip-form');
+			echo form_open(site_url().'/trips/deletetrip', $atr);
+			$atr = array(
+				'type' => 'text',
+				'class' => 'hidden',
+				'name' => 'tripID',
+				'id' => 'tripID',
+				'value' => $trip['tripID']
+			);
+			echo form_input($atr);
+			$atr = array(
+				'type' => 'submit',
+				'class' => 'button delete',
+				'value' => 'Delete'
+			);
+			echo form_input($atr);
+			echo form_close();
+			echo "</div>";
 		}
 		echo "</div>";
 	} else {

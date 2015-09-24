@@ -92,7 +92,7 @@
 			'required' => 'required',
 			'placeholder' => 'Miles...'
 		);
-		echo form_label('Distance: ', 'est-dist');
+		echo form_label('Distance (miles): ', 'est-dist');
 		echo form_input ($atr);
 		
 		// Average fuel cost

@@ -31,6 +31,22 @@
 				$this->load->view("/templates/footer", $data);
 			}
 		}
+		
+		// Sends trip to the model to be deleted
+		public function deleteTrip(){
+			$tripID = $this->input->post('tripID');
+			
+			// Load model and delete trip
+			$this->load->model('Trip_model');
+			if($this->Trip_model->delTrip($tripID)){
+				$this->session->userdata['trip-delete'] = TRUE;
+				redirect(site_url('trips'));
+			} else {
+				$this->session->userdata['trip-delete'] = FALSE;
+				redirect(site_url('trips'));
+			}
+			
+		}
 	}
 
 ?>

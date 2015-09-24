@@ -13,7 +13,7 @@
 			$userID = $this->session->userdata['userID'];
 			
 			// Query based on userID
-			$query = $this->db->query("SELECT trip_name, trip_distance, trips.vehicleID, userID, trip_cost,cost_pg, vehicles.year, vehicles.make, vehicles.model, vehicles.mpg FROM trips
+			$query = $this->db->query("SELECT tripID, trip_name, trip_distance, trips.vehicleID, userID, trip_cost,cost_pg, vehicles.year, vehicles.make, vehicles.model, vehicles.mpg FROM trips
 JOIN vehicles ON vehicles.vehicleID = trips.vehicleID
 WHERE userID = " . $userID . ";");
 			// Return results
@@ -21,6 +21,20 @@ WHERE userID = " . $userID . ";");
 				$results = $query->result_array();
 				return $results;
 			} else {
+				return FALSE;
+			}
+		}
+		
+		// Delete a trip from the database
+		public function delTrip($tripID){
+			// Delete trip
+			$this->db->where('tripID', $tripID);
+			$this->db->delete('trips');
+			
+			// Return true/false on success
+			if($this->db->affected_rows() > 0){
+				return TRUE;
+			}else {
 				return FALSE;
 			}
 		}
