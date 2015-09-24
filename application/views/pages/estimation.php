@@ -11,7 +11,8 @@
 	if ($_SERVER['REQUEST_METHOD'] == "POST"){
 			// Miles per Gallon
 			$est_mpg = "";
-			$vehicleID = $_POST['vehicleID'];
+			$vehicleID = $this->input->post('vehicleID');
+			$trip_name = $this->input->post('trip-name');
 			$result = $this->db->query("SELECT mpg FROM vehicles WHERE vehicleID=".$vehicleID);
 			foreach($result->result() as $row){
 				$est_mpg = $row->mpg;	
@@ -100,6 +101,16 @@
 		);
 		echo form_label('Cost per Gallon', 'est-fc');
 		echo form_input($atr);
+		
+		// Trip Name
+		$atr = array(
+			'type' => 'text',
+			'name' => 'trip-name',
+			'id' => 'trip_name',
+			'size' => '20'
+		);
+		echo form_label('Trip Name', 'trip-name');
+		echo form_input($atr);
 		// Submit Button
 		$atr = array(
 			'type' 	=> 'submit',
@@ -129,10 +140,10 @@
 			$atr = array('class' => 'save-trip');
 			echo form_open(site_url().'/estimate/savetrip', $atr);
 			echo "<input id='vehicleID' class='hidden' name='vehicleID' type='text' value='".$vehicleID."'>
+				<input id='trip-name' class='hidden' name='trip-name' type='text' value='".$trip_name."'>
 				<input id='trip-cost' class='hidden' name='trip-cost' type='text' value='".$trip_cost."'>
 				<input id='distance' class='hidden' name='distance' type='text' value='".$est_dist."'>
 				<input id='cost-pg' class='hidden' name='cost-pg' type='text' value='".$est_fc."'>
-				<input id='trip-name' class='hidden' name='trip-name' type='text' value='trip1'>
 				<input type='submit' name='save-trip' class='save button' value='Save Trip'>
 				";
 			

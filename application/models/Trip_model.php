@@ -13,7 +13,9 @@
 			$userID = $this->session->userdata['userID'];
 			
 			// Query based on userID
-			$query = $this->db->query("SELECT * FROM trips WHERE userID = " . $userID);
+			$query = $this->db->query("SELECT trip_name, trip_distance, trips.vehicleID, userID, trip_cost,cost_pg, vehicles.year, vehicles.make, vehicles.model, vehicles.mpg FROM trips
+JOIN vehicles ON vehicles.vehicleID = trips.vehicleID
+WHERE userID = " . $userID . ";");
 			// Return results
 			if($query->num_rows() > 0){
 				$results = $query->result_array();
