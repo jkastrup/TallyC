@@ -4,7 +4,7 @@
 <div class='content'>
 	<?php
 	// Check for trips
-	if(count($results) > 0){
+	if(is_array($results) || is_object($results)){
 		// trips exist, display them
 		echo "<div class='trips'>";
 		foreach($results as $trip){

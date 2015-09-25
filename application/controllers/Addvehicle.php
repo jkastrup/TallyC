@@ -27,5 +27,20 @@
 				redirect(site_url()."/pages/view/vehicles/add_failed");	
 			}
 		}
+		
+		// Delete vehicle from user account
+		public function delete(){
+			$vehicleID = $this->input->post('vehicleID');
+			
+			// Load model and delete trip
+			$this->load->model('Vehicle_model');
+			if($this->Vehicle_model->delete($vehicleID)){
+				$this->session->userdata['vehicle-delete'] = TRUE;
+				redirect(site_url('/pages/view/my_vehicles'));
+			} else {
+				$this->session->userdata['vehicle-delete'] = FALSE;
+				redirect(site_url('pages/view/my_vehicles'));
+			}
+		}
 	}
 ?>

@@ -31,9 +31,27 @@
 					$url = 'window.location.href="'.site_url().'/addvehicle/add"';
 					
 					$a = "https://www.google.com/search?newwindow=1&site=&source=hp&q=" . $year . " " . $make . " " . $model;
-					$output = "<div class='vehicle-info' title='". $vehicleID . "'><p><a title='Open in Google' target='_blank' href='".$a ."'>" . $year . " " . $make . " " . $model . "</a></p><p>Avg MPG: " . $mpg . "</p><div class='avatar-container'>" . img($img) . "</div></div>";
+					$output = "<div class='vehicle-info' title='". $vehicleID . "'><p><a title='Open in Google' target='_blank' href='".$a ."'>" . $year . " " . $make . " " . $model . "</a></p><p>Avg MPG: " . $mpg . "</p><div class='avatar-container'>" . img($img) . "</div>";
 					
 					echo $output;
+					$atr = array('class' => 'del-vehicle-form');
+					echo form_open(site_url().'/addvehicle/delete', $atr);
+					$atr = array(
+						'type' => 'text',
+						'class' => 'hidden',
+						'name' => 'vehicleID',
+						'id' => 'vehicleID',
+						'value' => $vehicleID
+					);
+					echo form_input($atr);
+					$atr = array(
+						'type' => 'submit',
+						'class' => 'button delete',
+						'value' => 'Delete'
+					);
+					echo form_input($atr);
+					echo form_close();
+					echo "</div>";
                 }
             } else {
                 // Failed query

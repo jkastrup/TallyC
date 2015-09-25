@@ -32,6 +32,10 @@ strong {
 	background: linear-gradient(135deg,  rgba(254,255,255,1) 0%,rgba(254,255,255,0.73) 39%,rgba(221,241,249,0.45) 80%,rgba(160,216,239,0.32) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#52a0d8ef',GradientType=1 );
 }
+.trip h2 {
+	display: inline-block;
+	border-bottom: 1px solid #1a1340;	
+}
 .trip p {
 	width: auto;
 	margin: 5px;

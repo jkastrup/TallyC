@@ -31,9 +31,24 @@
 				// vehicle already exists
 				return FALSE;
 			}
-			
-			
 		}
+		
+		// Delete vehicle from user account
+		public function delete($vehicleID){
+			// Delete trip
+			$userID = $this->session->userdata('userID');
+			$this->db->where('vehicleID', $vehicleID);
+			$this->db->where('userID', $userID);
+			$this->db->delete('userVehicles');
+			
+			// Return true/false on success
+			if($this->db->affected_rows() > 0){
+				return TRUE;
+			}else {
+				return FALSE;
+			}
+		}
+		
 		
 		// Tests if vehicle exists in user's selection already
 		// returns TRUE if vehicle is found
