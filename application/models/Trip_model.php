@@ -8,7 +8,7 @@
 		public function __construct(){
 			parent::__construct();	
 		}
-	// Function returns array of trips for current user.
+		// Function returns array of trips for current user.
 		public function getTrips(){
 			$userID = $this->session->userdata['userID'];
 			

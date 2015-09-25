@@ -20,6 +20,7 @@
 			return $trip_cost;
 		}
 		
+		// Saves a trip to the user's account
 		public function saveTrip($vehicleID, $dist, $fc,$trip_name, $trip_cost){
 			$userID = $this->session->userdata['userID'];
 			// data to be inserted
@@ -41,3 +42,24 @@
 			}
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
