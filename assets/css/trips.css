@@ -50,3 +50,11 @@ strong {
 .delete {
 	margin-top: 10px;	
 }
+.error {
+	text-align: center;	
+}
+.error h2 {
+	margin-top: -50px;
+	background: #C36;
+	color: #fff;	
+}

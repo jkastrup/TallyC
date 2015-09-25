@@ -1,15 +1,33 @@
 
 <link rel="stylesheet" type="text/css" href="/assets/css/my_vehicles.css" />
 
-<div class="content">
-	<h2> My Vehicles </h2>
+<?php
+	// Retrieve users cars
+	$userID = $this->session->userdata('userID');
+	$query = "SELECT id, userID, uV.vehicleID, year, make, model, mpg FROM userVehicles as uV join vehicles on vehicles.vehicleID = uV.vehicleID where userID=".$userID.";";
+	$result = $this->db->query($query);
+?>
+
+<div class='none'>
+	<?php
+		// Test for results
+		if( $result->num_rows() == 0){
+			// If there are no vehicles
+			echo heading("You have no vehicles yet!", 2);
+		}
+	?>
+</div>
+
+<div class="content">    
+    <?php 
+		if($result->num_rows == 0){
+			echo "<a class='add-v' style='display: block; text-align: center;' href=". site_url('/pages/view/vehicles') . ">Add a Vehicle</a>"; 
+		}
+	?>	
 	<div class="my_cars">
 		<?php
             // MY VEHICLES PAGE
-            
-            $userID = $this->session->userdata('userID');
-            $query = "SELECT id, userID, uV.vehicleID, year, make, model, mpg FROM userVehicles as uV join vehicles on vehicles.vehicleID = uV.vehicleID where userID=".$userID.";";
-            $result = $this->db->query($query);
+     
             if( $result->num_rows() > 0 ){
                 // successful query
                 foreach($result->result() as $vehicle) {
@@ -53,10 +71,7 @@
 					echo form_close();
 					echo "</div>";
                 }
-            } else {
-                // Failed query
-                echo "<h2>You have no vehicles yet!</h2>";
-            }
+            } 
         ?>
     </div>
 </div>

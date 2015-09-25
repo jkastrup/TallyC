@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/* CSS Document */
+html, body {
+	margin: 0;
+	padding: 0;
+}
+#welcome {
+	text-align:center;	
+}
+#welcome h4{
+	margin-top: -50px;
+	padding: 5px 0;
+	text-align: center;	
+	background: #0C9;
+	color: #fff;
+}

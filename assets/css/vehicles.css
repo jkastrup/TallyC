@@ -115,16 +115,16 @@ header {
 	border-radius: 10px;
 }
 .add_msg {
-	margin: 0;
 	padding: 0;
 	text-align: center;	
 }
 .add_success {
 	background: #0C9;
 	color: #1A1340;
+	margin-top: -50px;
 }
 .add_failed {
 	background: #C36;
 	color: #fff;
-	
+	margin-top: -50px;
 }

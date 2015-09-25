@@ -44,7 +44,7 @@
 		echo "</div>";
 	} else {
 		// trips dont exist yet
-		echo "<div class='trips'>";
+		echo "<div class='error'>";
 		echo heading("You haven't saved any trips yet!", 2);
 		echo "<a class='add-v' href=". site_url('/pages/view/estimation') . ">Create a trip!</a>";
 		echo "</div>";

@@ -13,6 +13,9 @@
         
         <body>
         	<header>
+            	<div id='name'>
+                	<?php echo "<p class='name'>".$this->session->userdata['f_name']."</p>"; ?>
+                </div>
             	<div id="logout">
                 	 <?php echo anchor('user/logout', 'Logout'); ?>
                 </div>

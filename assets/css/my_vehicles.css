@@ -7,7 +7,8 @@ html, body {
 	text-align: center;	
 }
 .my_cars {
-	padding-left: 5%;	
+	padding-left: 5%;
+	padding-top: 50px;	
 }
 #vehicles {
 	width: 73%;
@@ -56,5 +57,12 @@ html, body {
 	margin: 0 auto;
 	margin-top: 15px;
 	max-width: 60px;
+}
+.none {
+	margin-top: -50px;
+	padding: 0;
+	text-align: center;	
+	background: #C36;
+	color: #fff;	
 }
 
