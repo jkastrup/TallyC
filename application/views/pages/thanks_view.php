@@ -1,4 +1,6 @@
+<link href='/assets/css/thanks.css' rel='stylesheet' type="text/css" />
+
 <div class="thanks_msg">
-	<h1>Thanks for registering with TallyC!</h1>
+	<h2>Thanks for registering with TallyC!</h2>
     <p>Please login with your new account below</p>
 </div>

@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/* CSS Document */
+html, body {
+	font-family: 'Roboto', sans-serif;	
+}
+.thanks_msg {
+	margin-top: -30px;
+	text-align: center;
+	background: #0C9;
+	color: #fff;
+}
+.thanks_msg h2, .thanks_msg p{
+	margin: 0;
+}
+.thanks_msg p {
+	margin-bottom: 20px;
+}
+#content form {
+	margin-top: 20px;
+}
+#content {
+	padding-left: 20%;	
+}

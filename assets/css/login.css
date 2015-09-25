@@ -5,7 +5,8 @@
 	padding: 10px;
 	border: 2px solid #0CF;
 	margin-left: 5%;
-	width: 20%;
+	min-width: 20%;
+	max-width: 25%;
 	float: left;
 	border-radius: 10px;
 	-webkit-box-shadow: 10px 10px 5px 0px rgba(26,19,64,0.35);
@@ -54,3 +55,39 @@
    border-top-color: #7FB2F0;
    background: #7FB2F0;
 }
+.error_message {
+	margin-top: -30px;
+	text-align: center;	
+	background: #C36;
+	color: #fff;
+}
+.error_message h2, .error_message p {
+	margin: 0;	
+}
+.error_message p {
+	margin-bottom: 20px;	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

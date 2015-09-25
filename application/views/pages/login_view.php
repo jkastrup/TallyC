@@ -4,7 +4,7 @@
 <div class='error_message'>
     <?php 
 		if( validation_errors() != ""){
-			echo heading('ERRORS', 4);
+			echo heading('ERRORS', 2);
 			echo validation_errors(); 
 		}
 	?>
@@ -22,7 +22,6 @@
 			'id'			=>	'email',
 			'maxlength' 	=>	'50',
 			'size'			=>	'50',
-			'autofocus'		=> 	'autofocus',
 			'required'		=>	'required'
 		);
 		echo form_label('Email:', 'email');
