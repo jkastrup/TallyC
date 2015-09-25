@@ -8,13 +8,6 @@
 		// trips exist, display them
 		echo "<div class='trips'>";
 		foreach($results as $trip){
-			// display Name, Distance, trip cost, cost-pg, year,make,model, mpg
-			//echo "Trip Name: " . $trip['trip_name']. "<br/>";
-			//echo "Distance: " . $trip['trip_distance']. "<br/>";
-			//echo "Trip Cost: " . $trip['trip_cost']. "<br/>";
-			//echo "Price Per Gallon: " . $trip['cost_pg']. "<br/>";
-			//echo "Vehicle: " . $trip['year'] . " " . $trip['make'] . " " . $trip['model'] . " " . $trip['mpg'] . "mpg<br/>";
-			//echo "<br/>";
 			echo "<div class='trip'>";
 			echo heading($trip['trip_name'], 2);
 			echo "<p><strong>Distance:</strong> " . $trip['trip_distance'] . " miles</p>";
